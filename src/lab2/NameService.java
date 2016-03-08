@@ -8,7 +8,7 @@ package lab2;
  * @version 1.00
  */
 public class NameService {
-    
+    private final int NO_SPACE_INDEX = -1;
     /**
      * Finds and returns the last name from within a full name. Caution: 
      * No validation is performed.
@@ -21,8 +21,13 @@ public class NameService {
     public String extractLastName(String fullName) {
         String lastName = null;
         
-        // write your code here to extract the lastName and store in the
-        // above local variable
+
+        int index = fullName.indexOf(" ");
+        if(index == NO_SPACE_INDEX || fullName == null || fullName.isEmpty()){
+            throw new IllegalArgumentException(
+                    "Sorry full name requires a first and last name.");
+                }
+        lastName = fullName.substring(index, fullName.length());
         
         return lastName;
     }
