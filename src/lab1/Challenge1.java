@@ -23,9 +23,15 @@ public class Challenge1 {
         Challenge1 app = new Challenge1();
         
         String fullName = JOptionPane.showInputDialog("Enter full name (use Format: first last):");
+        try{
         String lastName = app.extractLastName(fullName);
         String msg = "Your last name is: " + lastName;
         JOptionPane.showMessageDialog(null, msg);
+        }catch(IllegalArgumentException e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+        
+        
     }
     
     // write the code to extract the lastName from the fullName
@@ -37,7 +43,7 @@ public class Challenge1 {
         
 
         int index = fullName.indexOf(" ");
-        if(index == NO_SPACE_INDEX || fullName == null || fullName.isEmpty()){
+        if(fullName == null || fullName.isEmpty() || index == NO_SPACE_INDEX){
             throw new IllegalArgumentException(
                     "Sorry full name requires a first and last name.");
                 }

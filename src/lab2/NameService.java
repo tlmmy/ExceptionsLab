@@ -23,7 +23,7 @@ public class NameService {
         
 
         int index = fullName.indexOf(" ");
-        if(index == NO_SPACE_INDEX || fullName == null || fullName.isEmpty()){
+        if(fullName == null || fullName.isEmpty() || index == NO_SPACE_INDEX){
             throw new IllegalArgumentException(
                     "Sorry full name requires a first and last name.");
                 }
